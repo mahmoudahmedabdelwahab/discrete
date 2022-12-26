@@ -1,43 +1,32 @@
 ﻿using System;
 
-namespace ConsoleApp10
+namespace project1
 {
     class Program
     {
-        public static int begning { get; private set; }
-        public static int end { get; private set; }
-        public static int End { get; private set; }
-        public static int n { get; private set; }
-        public static int i { get; private set; }
-        public static int sum { get; private set; }
-
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Console.WriteLine("Please enter The Begning : ");
-
-            begning = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("please enter the End: ");
-
-            end = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("The Perfect numbers within the given range : ");
-
-            for (n = begning; n <= End; n++)
+            int start = int.Parse(Console.ReadLine());
+            int end = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = start; i <= end; i++)
             {
-                i = 1;
-                sum = 0;
-                while (i < n)
+                for (int x = 1; x <= i; x++)
                 {
-                    if (n % i == 0)
-                        sum = sum + i;
-                    i++;
+                    if (i % x == 0)
+                        sum++;
                 }
-                if (sum == n)
-                    Console.WriteLine("{0} ", n);
+                if (sum == 2)
+                {
+                    Console.WriteLine(i);
+                    sum = 0;
+                }
+                else
+                {
+                    sum = 0;
+                }
             }
-            Console.WriteLine("  ");
         }
     }
 }
